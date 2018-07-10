@@ -28,9 +28,9 @@ Makes releasing maven-based open-source projects easy and fun.
 ## Dependencies
 
 - [Maven 3](https://maven.apache.org/)
-- [Maven wrapper](https://github.com/takari/maven-wrapper)
 - [Git](https://git-scm.com/)
-- [semver](https://github.com/npm/node-semver), optional see [Alternative](#without-semver)
+- [Maven wrapper](https://github.com/takari/maven-wrapper), optional see [*Without Maven wrapper*](#without-maven-wrapper)
+- [semver](https://github.com/npm/node-semver), optional see [*Without semver*](#without-semver)
 
 ## Installation
 
@@ -49,6 +49,8 @@ Specify your SCM URL in your parent POM:
     <connection>scm:git:git@github.com:org/repo.git</connection>
 </scm>
 ```
+
+Optionally, put specific plugins into a `release` profile, e.g. attaching sources/javadoc or signing artifacts.
 
 ## Usage
 
@@ -71,6 +73,10 @@ Any subsequent pre-releases can be deployed with:
 ```bash
 ./release.sh prerelease
 ```
+
+### Without Maven wrapper
+
+If the maven wrapper dependency is undesired, then just replace `./mvnw` with `mvn`.
 
 ### Without semver
 
